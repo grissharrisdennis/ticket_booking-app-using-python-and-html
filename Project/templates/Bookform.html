@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Booking Form</title>
+
+    <style>
+    .topbar {
+			background-color: #333;
+			color: #fff;
+			margin:30px auto;
+            padding:0px;
+            list-style:none;
+ text-align:right;
+		}
+		.topbar-buttons {
+			display: flex;
+			align-items: center;
+			text-decoration:none;
+		}
+
+		.topbar-button {
+			background-color: transparent;
+			color: #fff;
+			border: none;
+			margin-left: 0px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: all 0.3s ease;
+			text-decoration:none;
+		}
+
+		.topbar-button:hover {
+			background-color: #fff;
+			color: #333;
+		}
+  form {
+   width: 400px;
+   margin: 100px auto;
+   align-items: center;
+   padding-top: 20px;
+   border: 2px solid #333;
+   border-radius: 10px;
+   box-shadow: 0 0 10px #333;
+
+}
+
+/* Apply styles to each form group */
+.form-group {
+  align-items:center;
+  margin-bottom: 20px;
+}
+h1{
+text-align:center;
+}
+/* Apply styles to labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align:center;
+}
+
+/* Apply styles to input fields */
+input {
+  width:50%;
+  margin-left:100px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  align-items:center;
+}
+
+/* Apply styles to the submit button */
+input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			margin-bottom:20px;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #fff;
+			color: #333;
+		}
+        h2 {
+        display:inline-block;
+        }
+        .io {
+        float:right;
+        }
+.nav_links{
+list-style:none;
+}
+.nav_links li{
+display:inline-block;
+padding:10px 5px;
+}
+.nav_links li a{
+transition:all 0.3s ease 0s;
+}
+.nav_links li h1{
+margin-right:auto;
+padding-right:480px;
+}
+.nav_links li a:hover{
+color:#0088a9
+}
+li,a{
+font-family:"Monserrat",sans-serif;
+font-weight:500;
+font-size:16px;
+color:#edf0f1;
+text-decoration:none;
+}
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 10%;
+background-color:#000;
+}
+
+    </style>
+
+  </head>
+	<body onload="mult()">
+    <div class="topbar">
+  <header>
+     <ul class="nav_links">
+        <li><h1> Booking:{{ show.name }}</h1></li>
+         <li><a href="/{{ user.id }}/dashboard">Dashboard</a></li>
+        <li><a href="/{{ user.id }}/bookings">Bookings</a></li>
+        <li><a href="/logout">Logout</a></li>
+  </ul>
+  </header>
+ </div>
+    <div class="op">
+
+          <h2 class="io">Time:{{ show.show_time }}</h2>
+    </div>
+    {% for venue in show.venues %}
+<h3 > Available seats:{{ venue.capacity }}</h3>
+    {% endfor %}
+<form action="/show/{{ show.show_id }}/book/{{ user.id }}" method="POST">
+    <br>
+    <div class="form-group">
+    <label for="seats">No of Seats:</label>
+    <input type="number" id="seats" name="seats" onkeyup="mult(this.value);">
+  </div>
+
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price"  value="{{ show.price }}" onkeyup="mult(this.value);" readonly >
+  </div>
+
+
+   <div class="form-group">
+    <label for="total">Total</label>
+    <input type="text" id="total" name="total" readonly>
+  </div>
+
+<br>
+  <input onclick="confirmbook()" type="submit" value="Confirm Booking">
+</form>
+ <script>
+          function mult(){
+              var one = document.getElementById('seats').value;
+              var two = document.getElementById('price').value;
+              var result = parseFloat(one)* parseFloat(two);
+              document.getElementById('total').value = result;
+          }
+          function confirmbook(){
+                if (confirm("Are you sure you want to book this show")){
+                    return True;
+                }else{
+                    return False;
+                }
+          }
+      </script>
+	</body>
+
+</html>

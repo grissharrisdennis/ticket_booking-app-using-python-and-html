@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+		/* Add CSS styles for the top bar */
+		.topbar {
+			background-color: #333;
+			color: #fff;
+			margin:0;
+            padding:0;
+            list-style:none;
+ text-align:right;
+		}
+		.topbar-buttons {
+			display: flex;
+			align-items: center;
+			text-decoration:none;
+		}
+
+		.topbar-button {
+			background-color: transparent;
+			color: #fff;
+			border: none;
+			margin-left: 0px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: all 0.3s ease;
+			text-decoration:none;
+		}
+
+		.topbar-button:hover {
+			background-color: #fff;
+			color: #333;
+		}
+		/* Apply general styles to the form */
+form {
+   width: 400px;
+   margin: 50px auto;
+   align-items: center;
+   padding: 20px;
+   border: 2px solid #333;
+   border-radius: 10px;
+	box-shadow: 0 0 10px #333;
+
+}
+
+/* Apply styles to each form group */
+.form-group {
+  align-items:center;
+  margin-bottom: 15px;
+}
+h1{
+text-align:center;
+}
+/* Apply styles to labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Apply styles to input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Apply styles to the submit button */
+input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #fff;
+			color: #333;
+		}
+.planter ul{
+background-color:#333;
+ margin:0;
+ padding:0;
+ list-style:none;
+ text-align:right;
+    }
+  .planter ul li{
+  background-color:#333;
+   display:inline-block;
+   }
+
+   .planter ul li a{
+   font-size:20px;
+   display:block;
+   text-decoration:none;
+   padding:20px 140px;
+   color: #1A2980;  /* fallback for old browsers */
+   color: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+   color: linear-gradient(to right, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   }
+    .planter ul li a:hover{
+   color: #000000; /* fallback for old browsers */
+   color: -webkit-linear-gradient(to right, #000000, #0f9b0f);  /* Chrome 10-25, Safari 5.1-6 */
+   color: linear-gradient(to right, #000000, #0f9b0f);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+	</style>
+</head>
+<body>
+<div class="planter">
+     <ul>
+			<li class="topbar-button"><a href="/profile">Profile</a></li>
+
+            <li class="topbar-button"><a href="/admin_dashboard">Dashboard</a></li>
+
+            <li class="topbar-button"><a href="/logout">Logout</a></li>
+		</ul>
+
+ </div>
+<br>
+
+
+<form action="add_venue" method="POST">
+    <h1>Create Venue</h1>
+    <br>
+  <div class="form-group">
+    <label for="venue-name">Venue Name:</label>
+    <input type="text" id="venue-name" name="venue-name">
+  </div>
+
+  <div class="form-group">
+    <label for="venue-place">Place:</label>
+    <input type="text" id="venue-place" name="venue-place">
+  </div>
+
+   <div class="form-group">
+    <label for="venue-location">Location:</label>
+    <input type="text" id="venue-location" name="venue-location">
+  </div>
+
+  <div class="form-group">
+    <label for="venue-capacity">Capacity:</label>
+    <input type="number" id="venue-capacity" name="venue-capacity">
+  </div>
+<br>
+  <input type="submit" value="Create Venue">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+Register
+{% endblock %}
+
+
+{% block styles %}
+<style>
+    .main{
+display:flex;
+justify-content:flex-end;
+align-items:center;
+padding:10px 10%;
+background-color:#000;
+}
+.main li{
+font-size:20px;
+list-style:none;
+padding:10px 20px;
+}
+.main li a{
+text-decoration:none;
+transition:all 0.3s ease 0s;
+}
+.main li a:hover{
+color:#fff;
+}
+</style>
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/style.css')}}">
+{% endblock %}
+
+
+{% block content %}
+   <body>
+   <div class="main">
+       <ul>
+           <li> <a href="/">Home</a></li>
+       </ul>
+   </div>
+      <div class="containers">
+           <h1 class="wer"></h1>
+          <form class="form-signin" method="POST" action="/register">
+               <h2><u>Sign up</u></h2>
+              <dl>
+                  {{ form.hidden_tag() }}
+                  {{ wtf.form_field(form.username) }}
+                  <br>
+                  {{ wtf.form_field(form.password) }}
+                  <input  class="btn btn-primary" type="submit" value="Register">
+              </dl>
+          </form>
+      </div>
+   </body>
+{% endblock %}

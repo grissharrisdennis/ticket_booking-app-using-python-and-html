@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Summary</title>
+    <style>
+            * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', 'Arial', sans-serif;
+}
+
+.navbar{
+    background:#000;
+    width: 1450px;
+    height: 75px;
+    margin: auto;
+}
+        .menu{
+    width: 900px;
+    float: right;
+    height: 70px;
+}
+
+ul{
+
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 100px;
+    margin-right:100px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #6DD5FA;
+    font-family: Arial;
+    font-size:20px;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+ul li a:hover{
+    color: #ff7200;
+}
+span{
+text-align:center;
+font-size:40px;
+}
+    </style>
+</head>
+<body>
+     <div class="main">
+        <div class="navbar">
+            <div class="menu">
+                <ul>
+                    <li><a href="/admin_dashboard">Dashboard</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+     </div>
+  <section>
+      <span><h1>Show Summary</h1></span>
+     <img src="data:image/png;base64, {{ plot_url }}">
+      <h3>Shows vs No of seats</h3>
+  </section>
+
+</body>
+</html>
