@@ -1,7 +1,7 @@
 import os
 
-import matplotlib
-import matplotlib.pyplot as plt
+#import matplotlib
+#import matplotlib.pyplot as plt
 from flask import Flask, render_template, redirect, url_for, request, make_response, flash
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager, login_user, login_required, logout_user, UserMixin
@@ -14,7 +14,7 @@ from werkzeug.utils import secure_filename
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Length
 
-matplotlib.use('Agg')
+#matplotlib.use('Agg')
 import base64
 from io import BytesIO
 from datetime import datetime

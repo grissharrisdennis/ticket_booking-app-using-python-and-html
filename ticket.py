@@ -12,7 +12,6 @@ from main import Venue,Show,Show_Venue,Booking,User,Admin
 
 
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'onepieceisreal'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog_database.sqlite3'
