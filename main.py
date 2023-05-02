@@ -315,27 +315,27 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/admin/summary', methods=['GET'])
-def summary():
-    x = []
-    y = []
-    img=BytesIO()
-    Book = Booking.query.all()
-    for book in Book:
-        show = book.show_id
-        shows = Show.query.filter_by(show_id=show)
-        for sho in shows:
-            x.append(sho.name)
-            y.append(book.seats)
-    plt.bar(x, y)
-    plt.xlabel('shows')
-    plt.ylabel('seats')
-    plt.title('show_summary')
-    plt.savefig(img,format='png')
-    plt.close()
-    img.seek(0)
-    plot_url = base64.b64encode(img.getvalue()).decode('utf8')
-    return render_template('summary.html',plot_url=plot_url)
+# @app.route('/admin/summary', methods=['GET'])
+# def summary():
+#     x = []
+#     y = []
+#     img=BytesIO()
+#     Book = Booking.query.all()
+#     for book in Book:
+#         show = book.show_id
+#         shows = Show.query.filter_by(show_id=show)
+#         for sho in shows:
+#             x.append(sho.name)
+#             y.append(book.seats)
+#     plt.bar(x, y)
+#     plt.xlabel('shows')
+#     plt.ylabel('seats')
+#     plt.title('show_summary')
+#     plt.savefig(img,format='png')
+#     plt.close()
+#     img.seek(0)
+#     plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+#     return render_template('summary.html',plot_url=plot_url)
 
 
 
